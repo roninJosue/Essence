@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
+    ReactDOM = require('react-dom'),
     Btn =  require('./components/Btn'),
     BtnItem =  require('./components/BtnItem'),
     Snackbar =  require('./components/Snackbar'),
@@ -84,7 +85,7 @@ var fab = document.getElementById('btn-fab'),
     demoHeader = document.getElementById('demoHeader');
 
 if (demoHeader) {
-  React.render(
+  ReactDOM.render(
     <div>
 
       <div>
@@ -203,7 +204,7 @@ if (demoHeader) {
 }
 
 if (listCheckbox) {
-  React.render(
+  ReactDOM.render(
       <List
         type='checkbox'
         avatar={true}
@@ -244,7 +245,7 @@ if (listCheckbox) {
     listCheckbox
   );
 
-  React.render(
+  ReactDOM.render(
       <List
         type='checkbox'
         avatar={true}
@@ -290,7 +291,7 @@ if (listCheckbox) {
     listCheckboxRight
   );
 
-  React.render(
+  ReactDOM.render(
       <List
         type='switch'
         avatar={true}
@@ -323,7 +324,7 @@ if (listCheckbox) {
     listSwitch
   );
 
-  React.render(
+  ReactDOM.render(
       <List
         type='reorder'
         avatar={true}
@@ -418,7 +419,7 @@ if (listCheckbox) {
         }]
       ;
 
-  React.render(
+  ReactDOM.render(
     <List
       type='expand'
       avatar={true}
@@ -467,7 +468,7 @@ if (listCheckbox) {
 }
 
 if (listSingleLine) {
-  React.render(
+  ReactDOM.render(
     <List
       type='single-line'
     >
@@ -492,7 +493,7 @@ if (listSingleLine) {
     listSingleLine
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='single-line'
       icon={true}
@@ -522,7 +523,7 @@ if (listSingleLine) {
     listSingleLineIcon
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='single-line'
       avatar={true}
@@ -556,7 +557,7 @@ if (listSingleLine) {
     listSingleLineAvatar
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='single-line'
       avatar={true}
@@ -601,7 +602,7 @@ if (listSingleLine) {
 }
 
 if (listTwoLine) {
-  React.render(
+  ReactDOM.render(
     <List
       type='two-line'
     >
@@ -630,7 +631,7 @@ if (listTwoLine) {
     listTwoLine
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='two-line'
       icon={true}
@@ -664,7 +665,7 @@ if (listTwoLine) {
     listTwoLineIcon
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='two-line'
       avatar={true}
@@ -702,7 +703,7 @@ if (listTwoLine) {
     listTwoLineAvatar
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='two-line'
       avatar={true}
@@ -751,7 +752,7 @@ if (listTwoLine) {
 }
 
 if (listMultiLine) {
-  React.render(
+  ReactDOM.render(
     <List
       type='multi-line'
     >
@@ -784,7 +785,7 @@ if (listMultiLine) {
     listMultiLine
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='multi-line'
       icon={true}
@@ -822,7 +823,7 @@ if (listMultiLine) {
     listMultiLineIcon
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='multi-line'
       avatar={true}
@@ -864,7 +865,7 @@ if (listMultiLine) {
     listMultiLineAvatar
   );
 
-  React.render(
+  ReactDOM.render(
     <List
       type='multi-line'
       avatar={true}
@@ -967,7 +968,7 @@ if (listMultiLine) {
 */
 
 if (progress) {
-  React.render(
+  ReactDOM.render(
     <div>
       <Progress type='slider' />
       <br />
@@ -1089,7 +1090,7 @@ if (navigationDesktop) {
         }]
       ;
 
-  React.render(
+  ReactDOM.render(
     <Navigation
       header='Essence'
       footer='Evozon'
@@ -1141,7 +1142,7 @@ if (navigationDesktop) {
     navigationDesktop
   );
   // show Button
-  React.render(
+  ReactDOM.render(
     <Btn>
       <BtnItem
         type={'flat'}
@@ -1230,7 +1231,7 @@ if (appbar) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <AppBar
     >
       <Btn>
@@ -1335,7 +1336,7 @@ if (toolbar) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <ToolBar
       title='Toolbar'
     >
@@ -1361,7 +1362,7 @@ if (toolbar) {
 }
 
 if (icons) {
-  React.render(
+  ReactDOM.render(
     <div>
       <Icon name='action-3d-rotation' />
       <Icon name='action-account-box' />
@@ -1380,7 +1381,7 @@ if (icons) {
 }
 
 if (fab) {
-  React.render(
+  ReactDOM.render(
     <Btn>
       <BtnItem
         label='&clubs;'
@@ -1402,7 +1403,7 @@ if (fab) {
 }
 
 if (flat) {
-  React.render(
+  ReactDOM.render(
     <Btn>
       <BtnItem
         classes={'flat'}
@@ -1446,7 +1447,7 @@ if (flat) {
 }
 
 if (raised) {
-  React.render(
+  ReactDOM.render(
     <Btn>
       <BtnItem
         classes={'raised'}
@@ -1502,7 +1503,7 @@ if (raised) {
 }
 
 if (snackbarBtn) {
-  React.render(
+  ReactDOM.render(
     <Btn>
       <BtnItem
         classes={'raised'}
@@ -1558,7 +1559,7 @@ if (snackbarBtn) {
 }
 
 if (snackbars) {
-  React.render(
+  ReactDOM.render(
     <Snackbar>
       <SnackbarItem
         id={'snackbar1'}
@@ -1585,7 +1586,7 @@ if (snackbars) {
 }
 
 if (toasts) {
-  React.render(
+  ReactDOM.render(
     <Toast>
       <ToastItem
         id={'toast1'}
@@ -1612,7 +1613,7 @@ if (toasts) {
 }
 
 if (inputs) {
-  React.render(
+  ReactDOM.render(
     <Input>
       <InputItem
         classes={'e-input-group has-success'}
@@ -1668,7 +1669,7 @@ if (inputs) {
 }
 
 if (input_textarea) {
-  React.render(
+  ReactDOM.render(
     <Input>
       <InputItem
         classes={'e-input-group'}
@@ -1694,7 +1695,7 @@ if (input_textarea) {
 }
 
 if (input_validation) {
-  React.render(
+  ReactDOM.render(
     <Input>
       <InputItem
         classes={'e-input-group'}
@@ -1721,7 +1722,7 @@ if (input_validation) {
 }
 
 if (input_hints) {
-  React.render(
+  ReactDOM.render(
     <Input>
       <InputItem
         classes={'e-input-group has-error'}
@@ -1750,7 +1751,7 @@ if (input_hints) {
 }
 
 if (input_styling) {
-  React.render(
+  ReactDOM.render(
     <Input>
       <InputItem
         classes={'e-input-group has-warning'}
@@ -1786,7 +1787,7 @@ if (input_styling) {
 }
 
 if (switches) {
-  React.render(
+  ReactDOM.render(
     <Switch>
 
       <SwitchItem
@@ -1862,7 +1863,7 @@ if (cards) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <Card>
       <CardItem
         image='../assets/img/card-img.jpg'
@@ -1977,7 +1978,7 @@ if (cards) {
 }
 
 if (chips) {
-  React.render(
+  ReactDOM.render(
     <Chip>
       <ChipItem
         image='../assets/img/card-user-img.jpg'
@@ -2006,7 +2007,7 @@ if (chips) {
 }
 
 if (papers) {
-  React.render(
+  ReactDOM.render(
     <Paper>
       <PaperItem
         classes={'e-shadow-1'}
@@ -2035,7 +2036,7 @@ if (papers) {
 }
 
 if (sliders) {
-  React.render(
+  ReactDOM.render(
     <Slider>
       <SliderItem start={10} fill={false} />
       <br />
@@ -2060,7 +2061,7 @@ if (sliders) {
 }
 
 if (dialogs) {
-  React.render(
+  ReactDOM.render(
     <Dialog>
       <DialogItem
         title="Use Google's location service?"
@@ -2128,7 +2129,7 @@ if (dialogs) {
 }
 
 if (tooltips) {
-  React.render(
+  ReactDOM.render(
     <Btn>
       <BtnItem
         classes={'flat'}
@@ -2247,7 +2248,7 @@ if (menu_simple) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <Menu items={menu_left} />,
     menu_simple
   );
@@ -2293,7 +2294,7 @@ if (menu_cover) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <Menu items={menu} />,
     menu_cover
   );
@@ -2384,7 +2385,7 @@ if (menu_multiple_simple) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <Menu items={menu} />,
     menu_multiple_simple
   );
@@ -2452,14 +2453,14 @@ if (menu_multiple_cover) {
     }
   ];
 
-  React.render(
+  ReactDOM.render(
     <Menu items={menu} />,
     menu_multiple_cover
   );
 }
 
 if (tabs_fixed) {
-  React.render(
+  ReactDOM.render(
     <TabMenu
       type='fixed'
       id={'TabMenuFixed'}
@@ -2550,7 +2551,7 @@ if (tabs_fixed) {
 }
 
 if (tabs_scrollable) {
-  React.render(
+  ReactDOM.render(
     <TabMenu
       type='scrollable'
       id={'TabMenuScrollable'}
@@ -2641,7 +2642,7 @@ if (tabs_scrollable) {
 }
 
 if (tabs_desktop) {
-  React.render(
+  ReactDOM.render(
     <TabMenu
       type='simple'
       id={'TabMenuDesktop'}

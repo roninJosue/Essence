@@ -1,20 +1,21 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
-    Text = require('./Text'),
+var React = require('react'),
+    classSet = require('classnames'),
+    ReactText = require('./Text'),
     Icon = require('./Icon'),
     BtnItem = require('./BtnItem'),
     MenuItem = require('./MenuItem'),
     PubSub = require('../utils/PubSub'),
     Mobile = require('../utils/Mobile'),
     ClassNames = require('../utils/ClassNames'),
+    cloneWithProps = require('react-addons-clone-with-props'),
     PositionH = require('../utils/PositionHorizontal');
 
 module.exports = React.createClass({
     displayName: 'Menu',
 
-    mixins: [PubSub, Mobile, PositionH, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       var self = this,
@@ -27,7 +28,7 @@ module.exports = React.createClass({
         isActive: false,
         isRightPosition: false,
         classes: {
-          'mobile': this.isMobile(),
+          'mobile': Mobile.isMobile(),
           'e-paper': true,
           'e-shadow-1': true,
           'e-nav-menu': false,
@@ -45,20 +46,20 @@ module.exports = React.createClass({
       });
 
       document.addEventListener("click", function(event){
-        if (!self.getDOMNode().contains(event.target)){
+        if (!self.contains(event.target)){
           self.hideMenu();
         }
       });
 
       document.addEventListener("touchend", function(event){
-        if (!self.getDOMNode().contains(event.target)){
+        if (!self.contains(event.target)){
           self.hideMenu();
         }
       });
 
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       var self = this,
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
@@ -88,13 +89,13 @@ module.exports = React.createClass({
 
       if (text) {
         return (
-          <Text
+          <ReactText
             onClick={self.showMenu}
             text={text}
             id={"text-for-" + menuID}
           >
             <Icon name={'navigation-arrow-drop-down'} />
-          </Text>
+          </ReactText>
         );
       }
 
@@ -225,13 +226,13 @@ module.exports = React.createClass({
 
       if (self.props.placeholder) {
         childPlaceholder = (
-          <Text
+          <ReactText
             onClick={self.showMenu}
             id={"text-for-" + self.props.id}
           >
             {placeholder}
             <Icon name={'navigation-arrow-drop-down'} />
-          </Text>
+          </ReactText>
         );
       }
 
@@ -246,19 +247,19 @@ module.exports = React.createClass({
 
       if (self.props.type === 'fab') {
         childPlaceholder = (
-          <Text
+          <ReactText
             onClick={self.showMenu}
             id={"fab-for-" + self.props.id}
             classes='e-btn-fab lines-button'
           >
-            <Text classes='lines' />
-          </Text>
+            <ReactText classes='lines' />
+          </ReactText>
         );
       }
 
       self.props.children.map(function(item, index) {
         children.push(
-          React.addons.cloneWithProps(item, {
+          React.cloneElement(item, {
             id: self.props.id,
             key: index,
             onClick: self.showMenu

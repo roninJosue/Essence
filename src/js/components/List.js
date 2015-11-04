@@ -1,15 +1,16 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    cloneWithProps = require('react-addons-clone-with-props'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'List',
 
-    mixins: [PubSub, Mobile, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -30,7 +31,7 @@ module.exports = React.createClass({
           'single-line': false,
         },
         activeItem: null,
-        isMobile: this.isMobile()
+        isMobile: Mobile.isMobile()
       };
     },
 
@@ -95,7 +96,7 @@ module.exports = React.createClass({
       if (childrens === 1) {
         var item = self.props.children;
         item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: self.props.id + 0,
               key: 0,
               dataId: 0,
@@ -108,7 +109,7 @@ module.exports = React.createClass({
       } else if (childrens > 1) {
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: self.props.id + key,
               key: key,
               dataId: key,

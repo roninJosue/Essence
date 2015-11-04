@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
+    cloneWithProps = require('react-addons-clone-with-props'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
@@ -18,10 +19,6 @@ module.exports = React.createClass({
       // Empty
     },
 
-    componentDidUnmount: function () {
-      // Empty
-    },
-
     renderChildren: function () {
       var self = this,
           childrens = React.Children.count(self.props.children),
@@ -34,7 +31,7 @@ module.exports = React.createClass({
       // Multiple items
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: key,
               key: key
             })

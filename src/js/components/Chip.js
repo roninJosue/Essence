@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
+var React = require('react'),
+    cloneWithProps = require('react-addons-clone-with-props'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
@@ -35,7 +35,7 @@ module.exports = React.createClass({
       this.subscribe('chip:ActiveItem', this.setActiveItem);
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       this.unsubscribe('chip:Open', this.setActive);
       this.unsubscribe('chip:Active', this.setActive);
       this.unsubscribe('chip:ActiveItem', this.setActiveItem);
@@ -48,7 +48,7 @@ module.exports = React.createClass({
 
       // One item
       if (childrens === 1) {
-        React.addons.cloneWithProps(self.props.children, {
+        React.cloneElement(self.props.children, {
           first: true,
           open: (self.state.isOpen) ? true : false,
           activeId: 0,
@@ -62,7 +62,7 @@ module.exports = React.createClass({
               isActive = (activeId === key) ? true : false;
 
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               first: (key === 0) ? true : false,
               open: (self.state.isOpen) ? true : false,
               active: isActive,

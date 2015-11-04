@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
     Image = require('./Image'),
     Text = require('./Text'),
@@ -10,12 +10,13 @@ var React = require('react/addons'),
     ClickPosition = require('../utils/ClickPosition'),
     BackgroundColor = require('../utils/BackgroundColor'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    cloneWithProps = require('react-addons-clone-with-props'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'ListItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -267,7 +268,7 @@ module.exports = React.createClass({
             var item = i;
 
             item = (
-              React.addons.cloneWithProps(i, {
+              React.cloneElement(i, {
                 id: k,
                 key: k,
                 onClick: self.hideNavigation

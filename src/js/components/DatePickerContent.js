@@ -1,16 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     ClassNames = require('../utils/ClassNames'),
     DateFormat = require('../utils/DateFormat'),
     Text = require('./Text'),
     Icon = require('./Icon'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DatePickerContent',
-
-    mixins: [ClassNames, DateFormat],
 
     getInitialState: function() {
       var d = new Date();

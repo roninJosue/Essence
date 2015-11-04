@@ -1,20 +1,21 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
+	ReactDOM = require('react-dom'),
     ComponentsList = require('./components/ComponentsList')();
 
 // Navigation Menu + Buttons
-React.render(
+ReactDOM.render(
   ComponentsList.navigation_menu,
   document.getElementById('navigationMenu')
 );
 
-React.render(
+ReactDOM.render(
   ComponentsList.navigation_buttons,
   document.getElementById('navigationBtn')
 );
 
-React.render(
+ReactDOM.render(
   ComponentsList.navigation_title,
   document.getElementById('navigationTitle')
 );
